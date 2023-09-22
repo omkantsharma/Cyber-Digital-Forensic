@@ -1,0 +1,459 @@
+Volatility execution steps
+Detecting Trozen Malware From Memory Dump
+-	Open kali 
+-	On browser
+-	https://www.volatilityfoundation.org/releases - home page 
+-	https://www.volatilityfoundation.org/26          - download page 
+-	Go download folder -  volatility_2.6_lin64_standalone -  right click and extract here
+-	Open    volatility_2.6_lin64_standalone. folder, -  vol.py [we will use it for run volatility]
+-	 In terminal - - 
+-	┌──(kali㉿kali)-[~]
+-	└─$ cd Downloads
+-	                                                                              
+-	┌──(kali㉿kali)-[~/Downloads]
+-	└─$ ls          
+-	volatility_2.6_lin64_standalone  volatility_2.6_lin64_standalone.zip
+-	                                                                              
+-	┌──(kali㉿kali)-[~/Downloads]
+-	└─$ cd volatility_2.6_lin64_standalone
+-	                                                                              
+-	┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+-	└─$ ls
+-	AUTHORS.txt  LEGAL.txt    README.txt
+-	CREDITS.txt  LICENSE.txt  volatility_2.6_lin64_standalone
+-	                                                                              
+-	┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+-	└─$ ./volatility_2.6_lin64_standalone
+-	
+-	Volatility Foundation Volatility Framework 2.6
+-	ERROR   : volatility.debug    : You must specify something to do (try -h)
+-	
+-	Note---[so here - vol.py is executive file ]
+-	                                                                              
+-	┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+-	└─$ ./volatility_2.6_lin64_standalone -h
+-	Volatility Foundation Volatility Framework 2.6
+-	Usage: Volatility - A memory forensics analysis platform.
+-	
+-	Options:
+-	  -h, --help            list all available options and their default values.
+-	                        Default values may be set in the configuration file
+-	                        (/etc/volatilityrc)
+-	  --conf-file=/home/kali/.volatilityrc
+-	                        User based configuration file
+-	  -d, --debug           Debug volatility
+-	  --plugins=PLUGINS     Additional plugin directories to use (colon separated)
+-	  --info                Print information about all registered objects
+-	  --cache-directory=/home/kali/.cache/volatility
+-	                        Directory where cache files are stored
+-	  --cache               Use caching
+-	  --tz=TZ               Sets the (Olson) timezone for displaying timestamps
+-	                        using pytz (if installed) or tzset
+-	  -f FILENAME, --filename=FILENAME
+-	                        Filename to use when opening an image
+-	  --profile=WinXPSP2x86
+-	                        Name of the profile to load (use --info to see a list
+-	                        of supported profiles)
+-	  -l LOCATION, --location=LOCATION
+-	                        A URN location from which to load an address space
+-	  -w, --write           Enable write support
+-	  --dtb=DTB             DTB Address
+-	  --output=text         Output in this format (support is module specific, see
+-	                        the Module Output Options below)
+-	  --output-file=OUTPUT_FILE
+-	                        Write output in this file
+-	  -v, --verbose         Verbose information
+-	  --shift=SHIFT         Mac KASLR shift address
+-	  -g KDBG, --kdbg=KDBG  Specify a KDBG virtual address (Note: for 64-bit
+-	                        Windows 8 and above this is the address of
+-	                        KdCopyDataBlock)
+-	  --force               Force utilization of suspect profile
+-	  --cookie=COOKIE       Specify the address of nt!ObHeaderCookie (valid for
+-	                        Windows 10 only)
+-	  -k KPCR, --kpcr=KPCR  Specify a specific KPCR address
+-	
+-	        Supported Plugin Commands:
+-	
+-	                amcache         Print AmCache information
+-	                apihooks        Detect API hooks in process and kernel memory
+-	                atoms           Print session and window station atom tables
+-	                atomscan        Pool scanner for atom tables
+-	                auditpol        Prints out the Audit Policies from HKLM\SECURITY\Policy\PolAdtEv
+-	                bigpools        Dump the big page pools using BigPagePoolScanner
+-	                bioskbd         Reads the keyboard buffer from Real Mode memory
+-	                cachedump       Dumps cached domain hashes from memory
+-	                callbacks       Print system-wide notification routines
+-	                clipboard       Extract the contents of the windows clipboard
+-	                cmdline         Display process command-line arguments
+-	                cmdscan         Extract command history by scanning for _COMMAND_HISTORY
+-	                connections     Print list of open connections [Windows XP and 2003 Only]
+-	                connscan        Pool scanner for tcp connections
+-	                consoles        Extract command history by scanning for _CONSOLE_INFORMATION
+-	                crashinfo       Dump crash-dump information
+-	                deskscan        Poolscaner for tagDESKTOP (desktops)
+-	                devicetree      Show device tree
+-	                dlldump         Dump DLLs from a process address space
+-	                dlllist         Print list of loaded dlls for each process
+-	                driverirp       Driver IRP hook detection
+-	                drivermodule    Associate driver objects to kernel modules
+-	                driverscan      Pool scanner for driver objects
+-	                dumpcerts       Dump RSA private and public SSL keys
+-	                dumpfiles       Extract memory mapped and cached files
+-	                dumpregistry    Dumps registry files out to disk 
+-	                editbox         Displays information about Edit controls. (Listbox experimental.)
+-	                envars          Display process environment variables
+-	                eventhooks      Print details on windows event hooks
+-	                evtlogs         Extract Windows Event Logs (XP/2003 only)
+-	                filescan        Pool scanner for file objects
+-	                gahti           Dump the USER handle type information
+-	                gditimers       Print installed GDI timers and callbacks
+-	                gdt             Display Global Descriptor Table
+-	                getservicesids  Get the names of services in the Registry and return Calculated SID
+-	                getsids         Print the SIDs owning each process
+-	                handles         Print list of open handles for each process
+-	                hashdump        Dumps passwords hashes (LM/NTLM) from memory
+-	                hibinfo         Dump hibernation file information
+-	                hivedump        Prints out a hive
+-	                hivelist        Print list of registry hives.
+-	                hivescan        Pool scanner for registry hives
+-	                hpakextract     Extract physical memory from an HPAK file
+-	                hpakinfo        Info on an HPAK file
+-	                idt             Display Interrupt Descriptor Table
+-	                iehistory       Reconstruct Internet Explorer cache / history
+-	                imagecopy       Copies a physical address space out as a raw DD image
+-	                imageinfo       Identify information for the image 
+-	                impscan         Scan for calls to imported functions
+-	                joblinks        Print process job link information
+-	                kdbgscan        Search for and dump potential KDBG values
+-	                kpcrscan        Search for and dump potential KPCR values
+-	                ldrmodules      Detect unlinked DLLs
+-	                lsadump         Dump (decrypted) LSA secrets from the registry
+-	                machoinfo       Dump Mach-O file format information
+-	                malfind         Find hidden and injected code
+-	                mbrparser       Scans for and parses potential Master Boot Records (MBRs) 
+-	                memdump         Dump the addressable memory for a process
+-	                memmap          Print the memory map
+-	                messagehooks    List desktop and thread window message hooks
+-	                mftparser       Scans for and parses potential MFT entries 
+-	                moddump         Dump a kernel driver to an executable file sample
+-	                modscan         Pool scanner for kernel modules
+-	                modules         Print list of loaded modules
+-	                multiscan       Scan for various objects at once
+-	                mutantscan      Pool scanner for mutex objects
+-	                notepad         List currently displayed notepad text
+-	                objtypescan     Scan for Windows object type objects
+-	                patcher         Patches memory based on page scans
+-	                poolpeek        Configurable pool scanner plugin
+-	                printkey        Print a registry key, and its subkeys and values
+-	                privs           Display process privileges
+-	                procdump        Dump a process to an executable file sample
+-	                pslist          Print all running processes by following the EPROCESS lists 
+-	                psscan          Pool scanner for process objects
+-	                pstree          Print process list as a tree
+-	                psxview         Find hidden processes with various process listings
+-	                qemuinfo        Dump Qemu information
+-	                raw2dmp         Converts a physical memory sample to a windbg crash dump
+-	                screenshot      Save a pseudo-screenshot based on GDI windows
+-	                servicediff     List Windows services (ala Plugx)
+-	                sessions        List details on _MM_SESSION_SPACE (user logon sessions)
+-	                shellbags       Prints ShellBags info
+-	                shimcache       Parses the Application Compatibility Shim Cache registry key
+-	                shutdowntime    Print ShutdownTime of machine from registry
+-	                sockets         Print list of open sockets
+-	                sockscan        Pool scanner for tcp socket objects
+-	                ssdt            Display SSDT entries
+-	                strings         Match physical offsets to virtual addresses (may take a while, VERY verbose)
+-	                svcscan         Scan for Windows services
+-	                symlinkscan     Pool scanner for symlink objects
+-	                thrdscan        Pool scanner for thread objects
+-	                threads         Investigate _ETHREAD and _KTHREADs
+-	                timeliner       Creates a timeline from various artifacts in memory 
+-	                timers          Print kernel timers and associated module DPCs
+-	                truecryptmaster Recover TrueCrypt 7.1a Master Keys
+-	                truecryptpassphrase     TrueCrypt Cached Passphrase Finder
+-	                truecryptsummary        TrueCrypt Summary
+-	                unloadedmodules Print list of unloaded modules
+-	                userassist      Print userassist registry keys and information
+-	                userhandles     Dump the USER handle tables
+-	                vaddump         Dumps out the vad sections to a file
+-	                vadinfo         Dump the VAD info
+-	                vadtree         Walk the VAD tree and display in tree format
+-	                vadwalk         Walk the VAD tree
+-	                vboxinfo        Dump virtualbox information
+-	                verinfo         Prints out the version information from PE images
+-	                vmwareinfo      Dump VMware VMSS/VMSN information
+-	                volshell        Shell in the memory image
+-	                windows         Print Desktop Windows (verbose details)
+-	                wintree         Print Z-Order Desktop Windows Tree
+-	                wndscan         Pool scanner for window stations
+-	                yarascan        Scan process or kernel memory with Yara signatures 
+-	
+-	These are the different available parameters/plugin we have use -- 
+
+
+Now just go Google - Memory Samples • volatilityfoundation/volatility Wiki
+-	https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples
+-	Download Dump Memory  sample  image of  - Malware– Cridex
+-	Click on and allow – cridex_memdump.zip extract file -  cridex.vmem
+
+Go back to kali terminal ---  
+-	First plug-in - imageinfo                                                                           
+-	┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+-	└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem imageinfo
+-	Volatility Foundation Volatility Framework 2.6
+-	INFO    : volatility.debug    : Determining profile based on KDBG search...
+-	          Suggested Profile(s) : WinXPSP2x86, WinXPSP3x86 (Instantiated with WinXPSP2x86)
+-	                     AS Layer1 : IA32PagedMemoryPae (Kernel AS)
+-	                     AS Layer2 : FileAddressSpace (/home/kali/Downloads/cridex.vmem)
+-	                      PAE type : PAE
+-	                           DTB : 0x2fe000L
+-	                          KDBG : 0x80545ae0L
+-	          Number of Processors : 1
+-	     Image Type (Service Pack) : 3
+-	                KPCR for CPU 0 : 0xffdff000L
+-	             KUSER_SHARED_DATA : 0xffdf0000L
+-	           Image date and time : 2012-07-22 02:45:08 UTC+0000
+-	     Image local date and time : 2012-07-21 22:45:08 -0400
+-	
+We choose - Suggested Profile(s) : WinXPSP2x86
+                                                                            
+┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 pslist
+Volatility Foundation Volatility Framework 2.6
+Offset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
+---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------
+0x823c89c8 System                    4      0     53      240 ------      0                                                              
+0x822f1020 smss.exe                368      4      3       19 ------      0 2012-07-22 02:42:31 UTC+0000                                 
+0x822a0598 csrss.exe               584    368      9      326      0      0 2012-07-22 02:42:32 UTC+0000                                 
+0x82298700 winlogon.exe            608    368     23      519      0      0 2012-07-22 02:42:32 UTC+0000                                 
+0x81e2ab28 services.exe            652    608     16      243      0      0 2012-07-22 02:42:32 UTC+0000                                 
+0x81e2a3b8 lsass.exe               664    608     24      330      0      0 2012-07-22 02:42:32 UTC+0000                                 
+0x82311360 svchost.exe             824    652     20      194      0      0 2012-07-22 02:42:33 UTC+0000                                 
+0x81e29ab8 svchost.exe             908    652      9      226      0      0 2012-07-22 02:42:33 UTC+0000                                 
+0x823001d0 svchost.exe            1004    652     64     1118      0      0 2012-07-22 02:42:33 UTC+0000                                 
+0x821dfda0 svchost.exe            1056    652      5       60      0      0 2012-07-22 02:42:33 UTC+0000                                 
+0x82295650 svchost.exe            1220    652     15      197      0      0 2012-07-22 02:42:35 UTC+0000                                 
+0x821dea70 explorer.exe           1484   1464     17      415      0      0 2012-07-22 02:42:36 UTC+0000                                 
+0x81eb17b8 spoolsv.exe            1512    652     14      113      0      0 2012-07-22 02:42:36 UTC+0000                                 
+0x81e7bda0 reader_sl.exe          1640   1484      5       39      0      0 2012-07-22 02:42:36 UTC+0000                                 
+0x820e8da0 alg.exe                 788    652      7      104      0      0 2012-07-22 02:43:01 UTC+0000                                 
+0x821fcda0 wuauclt.exe            1136   1004      8      173      0      0 2012-07-22 02:43:46 UTC+0000                                 
+0x8205bda0 wuauclt.exe            1588   1004      5      132      0      0 2012-07-22 02:44:01 UTC+0000                                 
+It show all running process at the time of capturing the memory dump from the ram
+Here we need to examine any running process is suspicious.
+0x821dea70 explorer.exe           1484   1464     17      415      0      0 2012-07-22 02:42:36 UTC+0000                                 
+0x81e7bda0 reader_sl.exe          1640   1484      5       39      0      0 2012-07-22 02:42:36 UTC+0000                                 
+0x820e8da0 alg.exe                 788    652      7      104      0      0 2012-07-22 02:43:01 UTC+0000                                 
+-	Looks suspicious 
+
+
+for further examination of these process – use plug-in – pstree
+                                                                              
+┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 pstree
+
+Volatility Foundation Volatility Framework 2.6
+Name                                                  Pid   PPid   Thds   Hnds Time
+-------------------------------------------------- ------ ------ ------ ------ ----
+ 0x823c89c8:System                                      4      0     53    240 1970-01-01 00:00:00 UTC+0000
+. 0x822f1020:smss.exe                                 368      4      3     19 2012-07-22 02:42:31 UTC+0000
+.. 0x82298700:winlogon.exe                            608    368     23    519 2012-07-22 02:42:32 UTC+0000
+... 0x81e2ab28:services.exe                           652    608     16    243 2012-07-22 02:42:32 UTC+0000
+.... 0x821dfda0:svchost.exe                          1056    652      5     60 2012-07-22 02:42:33 UTC+0000
+.... 0x81eb17b8:spoolsv.exe                          1512    652     14    113 2012-07-22 02:42:36 UTC+0000
+.... 0x81e29ab8:svchost.exe                           908    652      9    226 2012-07-22 02:42:33 UTC+0000
+.... 0x823001d0:svchost.exe                          1004    652     64   1118 2012-07-22 02:42:33 UTC+0000
+..... 0x8205bda0:wuauclt.exe                         1588   1004      5    132 2012-07-22 02:44:01 UTC+0000
+..... 0x821fcda0:wuauclt.exe                         1136   1004      8    173 2012-07-22 02:43:46 UTC+0000
+.... 0x82311360:svchost.exe                           824    652     20    194 2012-07-22 02:42:33 UTC+0000
+.... 0x820e8da0:alg.exe                               788    652      7    104 2012-07-22 02:43:01 UTC+0000
+.... 0x82295650:svchost.exe                          1220    652     15    197 2012-07-22 02:42:35 UTC+0000
+... 0x81e2a3b8:lsass.exe                              664    608     24    330 2012-07-22 02:42:32 UTC+0000
+.. 0x822a0598:csrss.exe                               584    368      9    326 2012-07-22 02:42:32 UTC+0000
+ 0x821dea70:explorer.exe                             1484   1464     17    415 2012-07-22 02:42:36 UTC+0000
+. 0x81e7bda0:reader_sl.exe                           1640   1484      5     39 2012-07-22 02:42:36 UTC+0000
+
+
+
+Pstree provide a tree – like parent to child process – so here [alg process]
+Is a child process of [ system process]
+
+.... 0x820e8da0:alg.exe                               788    652      7    104 2012-07-22 02:43:01 UTC+0000
+0x823c89c8:System                                      4      0     53    240 1970-01-01 00:00:00 UTC+0000
+
+Here [reader_sl.exe process]
+Is a child process of explorer.exe    process]
+0x821dea70:explorer.exe                             1484   1464     17    415 2012-07-22 02:42:36 UTC+0000
+. 0x81e7bda0:reader_sl.exe                           
+
+
+
+──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 psxview
+Volatility Foundation Volatility Framework 2.6
+Offset(P)  Name                    PID pslist psscan thrdproc pspcid csrss session deskthrd ExitTime
+---------- -------------------- ------ ------ ------ -------- ------ ----- ------- -------- --------
+0x02498700 winlogon.exe            608 True   True   True     True   True  True    True     
+0x02511360 svchost.exe             824 True   True   True     True   True  True    True     
+0x022e8da0 alg.exe                 788 True   True   True     True   True  True    True     
+0x020b17b8 spoolsv.exe            1512 True   True   True     True   True  True    True     
+0x0202ab28 services.exe            652 True   True   True     True   True  True    True     
+0x02495650 svchost.exe            1220 True   True   True     True   True  True    True     
+0x0207bda0 reader_sl.exe          1640 True   True   True     True   True  True    True     
+0x025001d0 svchost.exe            1004 True   True   True     True   True  True    True     
+0x02029ab8 svchost.exe             908 True   True   True     True   True  True    True     
+0x023fcda0 wuauclt.exe            1136 True   True   True     True   True  True    True     
+0x0225bda0 wuauclt.exe            1588 True   True   True     True   True  True    True     
+0x0202a3b8 lsass.exe               664 True   True   True     True   True  True    True     
+0x023dea70 explorer.exe           1484 True   True   True     True   True  True    True     
+0x023dfda0 svchost.exe            1056 True   True   True     True   True  True    True     
+0x024f1020 smss.exe                368 True   True   True     True   False False   False    
+0x025c89c8 System                    4 True   True   True     True   False False   False    
+0x024a0598 csrss.exe               584 True   True   True     True   False True    True     
+
+These are all true which means , these are not try to hide them self
+
+
+
+                                                                              
+┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 cmdline
+Volatility Foundation Volatility Framework 2.6
+************************************************************************
+System pid:      4
+************************************************************************
+smss.exe pid:    368
+Command line : \SystemRoot\System32\smss.exe
+************************************************************************
+csrss.exe pid:    584
+Command line : C:\WINDOWS\system32\csrss.exe ObjectDirectory=\Windows SharedSection=1024,3072,512 Windows=On SubSystemType=Windows ServerDll=basesrv,1 ServerDll=winsrv:UserServerDllInitialization,3 ServerDll=winsrv:ConServerDllInitialization,2 ProfileControl=Off MaxRequestThreads=16
+************************************************************************
+winlogon.exe pid:    608
+Command line : winlogon.exe
+************************************************************************
+services.exe pid:    652
+Command line : C:\WINDOWS\system32\services.exe
+************************************************************************
+lsass.exe pid:    664
+Command line : C:\WINDOWS\system32\lsass.exe
+************************************************************************
+svchost.exe pid:    824
+Command line : C:\WINDOWS\system32\svchost -k DcomLaunch
+************************************************************************
+svchost.exe pid:    908
+Command line : C:\WINDOWS\system32\svchost -k rpcss
+************************************************************************
+svchost.exe pid:   1004
+Command line : C:\WINDOWS\System32\svchost.exe -k netsvcs
+************************************************************************
+svchost.exe pid:   1056
+Command line : C:\WINDOWS\system32\svchost.exe -k NetworkService
+************************************************************************
+svchost.exe pid:   1220
+Command line : C:\WINDOWS\system32\svchost.exe -k LocalService
+************************************************************************
+explorer.exe pid:   1484
+Command line : C:\WINDOWS\Explorer.EXE
+************************************************************************
+spoolsv.exe pid:   1512
+Command line : C:\WINDOWS\system32\spoolsv.exe
+************************************************************************
+reader_sl.exe pid:   1640
+Command line : "C:\Program Files\Adobe\Reader 9.0\Reader\Reader_sl.exe" 
+************************************************************************
+alg.exe pid:    788
+Command line : C:\WINDOWS\System32\alg.exe
+************************************************************************
+wuauclt.exe pid:   1136
+Command line : "C:\WINDOWS\system32\wuauclt.exe" /RunStoreAsComServer Local\[3ec]SUSDSb81eb56fa3105543beb3109274ef8ec1
+************************************************************************
+wuauclt.exe pid:   1588
+Command line : "C:\WINDOWS\system32\wuauclt.exe" 
+This will show you – all running processes…
+
+reader_sl.exe pid:   1640
+Command line : "C:\Program Files\Adobe\Reader 9.0\Reader\Reader_sl.exe" 
+ Process name-  reader_sl.exe pid:   process id – 1640
+
+──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 memdump -p 1640 --dump-dir . 
+Volatility Foundation Volatility Framework 2.6
+************************************************************************
+Writing reader_sl.exe [  1640] to 1640.dmp
+The file will store in present folder 
+./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 memdump 
+-p 1640 – dump this process id file
+ --dump-dir .  –dump in present folder 
+You can see in a volatility_2.6_lin64_standalone folder – 1640 dmp file has been stored. 
+
+To know establish connect 
+Use plug-in ->  connscan 
+──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 connscan
+Volatility Foundation Volatility Framework 2.6
+Offset(P)  Local Address             Remote Address            Pid
+---------- ------------------------- ------------------------- ---
+0x02087620 172.16.112.128:1038       41.168.5.140:8080         1484
+0x023a8008 172.16.112.128:1037       125.19.103.198:8080       1484
+
+┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 sockets 
+Volatility Foundation Volatility Framework 2.6
+Offset(V)       PID   Port  Proto Protocol        Address         Create Time
+---------- -------- ------ ------ --------------- --------------- -----------
+0x81ddb780      664    500     17 UDP             0.0.0.0         2012-07-22 02:42:53 UTC+0000
+0x82240d08     1484   1038      6 TCP             0.0.0.0         2012-07-22 02:44:45 UTC+0000
+0x81dd7618     1220   1900     17 UDP             172.16.112.128  2012-07-22 02:43:01 UTC+0000
+0x82125610      788   1028      6 TCP             127.0.0.1       2012-07-22 02:43:01 UTC+0000
+0x8219cc08        4    445      6 TCP             0.0.0.0         2012-07-22 02:42:31 UTC+0000
+0x81ec23b0      908    135      6 TCP             0.0.0.0         2012-07-22 02:42:33 UTC+0000
+0x82276878        4    139      6 TCP             172.16.112.128  2012-07-22 02:42:38 UTC+0000
+0x82277460        4    137     17 UDP             172.16.112.128  2012-07-22 02:42:38 UTC+0000
+0x81e76620     1004    123     17 UDP             127.0.0.1       2012-07-22 02:43:01 UTC+0000
+0x82172808      664      0    255 Reserved        0.0.0.0         2012-07-22 02:42:53 UTC+0000
+0x81e3f460        4    138     17 UDP             172.16.112.128  2012-07-22 02:42:38 UTC+0000
+0x821f0630     1004    123     17 UDP             172.16.112.128  2012-07-22 02:43:01 UTC+0000
+0x822cd2b0     1220   1900     17 UDP             127.0.0.1       2012-07-22 02:43:01 UTC+0000
+0x82172c50      664   4500     17 UDP             0.0.0.0         2012-07-22 02:42:53 UTC+0000
+0x821f0d00        4    445     17 UDP             0.0.0.0         2012-07-22 02:42:31 UTC+0000
+
+
+
+We need to be find out remote address 
+For that we are using string cmd…
+┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ strings 1640.dmp | grep "41.168.5.140:8080"
+Host: 41.168.5.140:8080
+
+Connection Established with- 41.168.5.140:8080
+For fetching header –
+┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ strings 1640.dmp | grep "41.168.5.140:8080" -C 5
+ ABACFPFPENFDECFCEPFHFDEFFPFPACAB
+DpI8
+POST /zb/v_01_a/in/ HTTP/1.1
+Accept: */*
+User-Agent: Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)
+Host: 41.168.5.140:8080
+Content-Length: 229
+Connection: Keep-Alive
+Cache-Control: no-cache
+>mtvR
+`06!
+
+                                               
+┌──(kali㉿kali)-[~/Downloads/volatility_2.6_lin64_standalone]
+└─$ ./volatility_2.6_lin64_standalone -f ~/Downloads/cridex.vmem WinXPSP2x86 procdump -p 1640 --dump-dir .
+Volatility Foundation Volatility Framework 2.6
+Process(V) ImageBase  Name                 Result
+---------- ---------- -------------------- ------
+0x81e7bda0 0x00400000 reader_sl.exe        OK: executable.1640.exe
+             
+Here file will store as [executable.1640.exe].exe format
+For Analysis of this file - we using online platform – virus total 
+https://www.virustotal.com/gui/home/upload
+
+
+-	Add file there 
+-	
+
