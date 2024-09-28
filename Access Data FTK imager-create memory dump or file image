@@ -1,0 +1,72 @@
+Access Data FTK imager-create memory dump/file image
+-----------------------------------------------------------------------
+=======================================================================
+
+create memory dump or file image , we can use FTK imager
+
+steps - 
+
+ARTICLE - 
+https://aditya-pratap9557.medium.com/windows-memory-forensics-using-open-source-tools-3ec09930732e
+TOOLS Downloading link -
+
+ FTK imager
+https://www.exterro.com/digital-forensics-software/ftk-imager
+
+download setup > install -> file -> capture memory -> browse location -
+(-click on capture memory to start-  after capture close)
+-----------------------------------------------------------------------
+======================================================================
+VERIFY HASH IN FTK IMAGER
+(HOW VERIFY HASH IN FTK IMAGER)
+======================================================================
+-
+file - add evidence item 
+- image file 
+- next 
+- browse (select image file)-
+- finish 
+------------------------------
+- evidence tree - item added (right on the corner) 
+- select file and right click 
+- choose  Drive or image
+-verifying will start ------.......
+--------------------------------------------------------------------
+drive/image verify Results ----
+- sector count
+- mds Hash
+- shai Hash
+- bad blocks list
+------------------------------------
+========================================================================
+========================================================================
+CREATE A EVIDENCE FILE WITH FTK IMAGER
+(HOW TO CREATE A EVIDENCE FILE WITH FTK IMAGER)
+========================================================================
+use pen drive 
+-file 
+-add evidence item
+-physical device (device we want copy)
+(copy will be [physical acquisition of device])
+- next
+--------------------------------------------------------
+- evidence tree - item added (right on the corner) 
+- select file and right click 
+- import Disk image
+- create image will come 
+- add 
+- select e01     (for physical image)
+- next 
+- evidence item information (fill )
+-next
+-browse (image destination folder)
+-enter destination and file name
+-fnish
+---------
+- start
+----------------------------------
+creating image ---take time 
+--all image detail will come 
+----------------------------------
+
+
