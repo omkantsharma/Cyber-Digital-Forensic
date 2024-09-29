@@ -1,0 +1,1247 @@
+Volatility3 Digital Forensic Tool
+-----------------------------------
+
+Analysis of memory dump 
+-----------------------
+=======================================================================
+Download link----> 
+------------------------------------------------------=
+===============
+all files GitHub link -
+https://github.com/volatilityfoundation
+-----------------
+volatility3 GitHub link - 
+https://github.com/volatilityfoundation/volatility3
+------------------
+download volatility3 direct link in Linux - 
+git clone https://github.com/volatilityfoundation/volatility3.git
+------------------------------------------------------
+=======================================================================
+=======================================================================
+Memory dump sample for analysis link - 
+https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples
+=======================================================================
+=======================================================================
+
+289  git clone https://github.com/volatilityfoundation/volatility3.git\n
+  290  python vol.py -f ~/memdump.mem windows.pslist
+  291  ls
+  292  cd volatility3
+  293  ls
+  294  python vol.py -f ~/memdump.mem windows.pslist
+  295  ls
+  296  cd ..
+  297  ls
+
+
+298  python vol.py -f ~/memdump.mem windows.pslist
+  299  cd volatility3
+  300  python vol.py -f ~/memdump.mem windows.pslist
+  301  clear
+  302  python vol.py -f ~/memdump.mem windows.pslist
+  303  clear
+  304  python vol.py -f ~/memdump.mem windows. | grep -i svchost
+  305  python vol.py -f ~/memdump.mem windows.pslist | grep -i svchost
+  306  python vol.py -f ~/memdump.mem windows.pslist -h
+  307  python vol.py -f ~/memdump.mem windows.pslist --pid 996
+  308  python vol.py -f ~/memdump.mem windows.pslist | grep -i svchost | grep 4824
+  309  python vol.py -f ~/memdump.mem windows.pslist | grep -i svchost | grep 996
+  310  python vol.py -f ~/memdump.mem windows.cmdline -h
+  311  python vol.py -f ~/memdump.mem windows.cmdline --pid 996
+  312  python vol.py -h | grep -i dump
+  313  python vol.py -f ~/memdump.mem windows.pslist | grep -i svchost | grep 996 --dump
+-------------------------------------------------------------------
+  380  python vol.py -f ~/memdump.mem windows.pslist --pid 996 --dump
+  381  ll -h 0xa60a51fb81c0
+  382  file 0xa60a51fb81c0
+  383  xxd 0xa60a51fb81c0 | more
+--------------------------------------------------------------------------
+python vol.py -f ~/memdump.mem windows.info.Info 
+python vol.py -f ~/memdump.mem  windows.netscan.NetScan
+
+python vol.py -f ~/memdump.mem     windows.psscan.PsScan 
+----------------------------------------------------------------------------------------------------------------
+  385  python vol.py -f ~/memdump.mem     windows.psscan.PsScan\n
+  386  python vol.py -f ~/memdump.mem        windows.netstat.NetStat\n
+-----------------------------------------------------------------------------------------------------------
+  386  python vol.py -f ~/memdump.mem windows.info.Info
+  387  python vol.py -f ~/memdump.mem  windows.netscan.NetScan
+
+
+======================================================================
+======================================================================
+======================================================================
+practical ----------------------
+------------------------------------------------------------------------------------------------------------------------
+>>>>>>>>>>>>>>>>>>>>
+uninstall --
+--------------------------------
+┌──(kali㉿kali)-[~]
+└─$ ls
+00:0C:29:BF:5F:48  Documents  k2cu.txt    KSldAFqN.html  om       Pictures   Templates   volatility3
+czCbUNSh.jpeg      Downloads  kali1.txt   MKWjUhqc.jpeg  omk.txt  Public     Videos      xdGAvFju.html
+Desktop            k1.txt     kalicu.txt  Music          om.txt   slowloris  volatility  zphisher
+                                                                                                                
+┌──(kali㉿kali)-[~]
+└─$ git clone https://github.com/volatilityfoundation/volatility3.git
+
+fatal: destination path 'volatility3' already exists and is not an empty directory.
+                                                                                                                
+┌──(kali㉿kali)-[~]
+└─$ sudo rm -r volatility3
+[sudo] password for kali: 
+                                                                                                                
+┌──(kali㉿kali)-[~]
+└─$ ls
+00:0C:29:BF:5F:48  Documents  k2cu.txt    KSldAFqN.html  om       Pictures   Templates   xdGAvFju.html
+czCbUNSh.jpeg      Downloads  kali1.txt   MKWjUhqc.jpeg  omk.txt  Public     Videos      zphisher
+Desktop            k1.txt     kalicu.txt  Music          om.txt   slowloris  volatility
+                                                                                                                
+┌──(kali㉿kali)-[~]
+└─$ 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+=========================================================================
+
+
+
+
+
+
+
+start from installation -----------------------
+----------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+──(kali㉿kali)-[~]
+└─$ git clone https://github.com/volatilityfoundation/volatility3.git
+
+Cloning into 'volatility3'...
+remote: Enumerating objects: 35924, done.
+remote: Counting objects: 100% (1806/1806), done.
+remote: Compressing objects: 100% (606/606), done.
+remote: Total 35924 (delta 1412), reused 1522 (delta 1200), pack-reused 34118 (from 1)
+Receiving objects: 100% (35924/35924), 7.07 MiB | 2.85 MiB/s, done.
+Resolving deltas: 100% (27463/27463), done.
+
+┌──(kali㉿kali)-[~]
+└─$ ls
+00:0C:29:BF:5F:48  Documents  k2cu.txt    KSldAFqN.html  om       Pictures   Templates   volatility3
+czCbUNSh.jpeg      Downloads  kali1.txt   MKWjUhqc.jpeg  omk.txt  Public     Videos      xdGAvFju.html
+Desktop            k1.txt     kalicu.txt  Music          om.txt   slowloris  volatility  zphisher
+                                                                                                                
+┌──(kali㉿kali)-[~]
+└─$ cd volatility3
+
+┌──(kali㉿kali)-[~/volatility3]
+└─$ ls
+API_CHANGES.md  doc          mypy.ini        requirements-dev.txt      setup.py     vol.py         vol.spec
+CITATION.cff    LICENSE.txt  pyproject.toml  requirements-minimal.txt  test         volshell.py
+development     MANIFEST.in  README.md       requirements.txt          volatility3  volshell.spec
+                                                                                                                
+┌──(kali㉿kali)-[~/volatility3]
+└─$ 
+            
+
+
+
+
+
+
+
+
+                                                                                                     
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py        
+Volatility 3 Framework 2.10.0
+usage: volatility [-h] [-c CONFIG] [--parallelism [{processes,threads,off}]] [-e EXTEND] [-p PLUGIN_DIRS]
+                  [-s SYMBOL_DIRS] [-v] [-l LOG] [-o OUTPUT_DIR] [-q] [-r RENDERER] [-f FILE] [--write-config]
+                  [--save-config SAVE_CONFIG] [--clear-cache] [--cache-path CACHE_PATH] [--offline]
+                  [--filters FILTERS] [--single-location SINGLE_LOCATION] [--stackers [STACKERS ...]]
+                  [--single-swap-locations [SINGLE_SWAP_LOCATIONS ...]]
+                  {banners.Banners,configwriter.ConfigWriter,frameworkinfo.FrameworkInfo,isfinfo.IsfInfo,layerwriter.LayerWriter,linux.bash.Bash,linux.capabilities.Capabilities,linux.check_afinfo.Check_afinfo,linux.check_creds.Check_creds,linux.check_idt.Check_idt,linux.check_modules.Check_modules,linux.check_syscall.Check_syscall,linux.ebpf.EBPF,linux.elfs.Elfs,linux.envars.Envars,linux.iomem.IOMem,linux.keyboard_notifiers.Keyboard_notifiers,linux.kmsg.Kmsg,linux.library_list.LibraryList,linux.lsmod.Lsmod,linux.lsof.Lsof,linux.malfind.Malfind,linux.mountinfo.MountInfo,linux.netfilter.Netfilter,linux.pagecache.Files,linux.pagecache.InodePages,linux.pidhashtable.PIDHashTable,linux.proc.Maps,linux.psaux.PsAux,linux.pslist.PsList,linux.psscan.PsScan,linux.pstree.PsTree,linux.sockstat.Sockstat,linux.tty_check.tty_check,linux.vmayarascan.VmaYaraScan,mac.bash.Bash,mac.check_syscall.Check_syscall,mac.check_sysctl.Check_sysctl,mac.check_trap_table.Check_trap_table,mac.dmesg.Dmesg,mac.ifconfig.Ifconfig,mac.kauth_listeners.Kauth_listeners,mac.kauth_scopes.Kauth_scopes,mac.kevents.Kevents,mac.list_files.List_Files,mac.lsmod.Lsmod,mac.lsof.Lsof,mac.malfind.Malfind,mac.mount.Mount,mac.netstat.Netstat,mac.proc_maps.Maps,mac.psaux.Psaux,mac.pslist.PsList,mac.pstree.PsTree,mac.socket_filters.Socket_filters,mac.timers.Timers,mac.trustedbsd.Trustedbsd,mac.vfsevents.VFSevents,timeliner.Timeliner,vmscan.Vmscan,windows.bigpools.BigPools,windows.callbacks.Callbacks,windows.cmdline.CmdLine,windows.crashinfo.Crashinfo,windows.debugregisters.DebugRegisters,windows.devicetree.DeviceTree,windows.dlllist.DllList,windows.driverirp.DriverIrp,windows.drivermodule.DriverModule,windows.driverscan.DriverScan,windows.dumpfiles.DumpFiles,windows.envars.Envars,windows.filescan.FileScan,windows.getservicesids.GetServiceSIDs,windows.getsids.GetSIDs,windows.handles.Handles,windows.hollowprocesses.HollowProcesses,windows.iat.IAT,windows.info.Info,windows.joblinks.JobLinks,windows.kpcrs.KPCRs,windows.ldrmodules.LdrModules,windows.malfind.Malfind,windows.mbrscan.MBRScan,windows.memmap.Memmap,windows.mftscan.ADS,windows.mftscan.MFTScan,windows.modscan.ModScan,windows.modules.Modules,windows.mutantscan.MutantScan,windows.netscan.NetScan,windows.netstat.NetStat,windows.orphan_kernel_threads.Threads,windows.pe_symbols.PESymbols,windows.pedump.PEDump,windows.poolscanner.PoolScanner,windows.privileges.Privs,windows.processghosting.ProcessGhosting,windows.pslist.PsList,windows.psscan.PsScan,windows.pstree.PsTree,windows.psxview.PsXView,windows.registry.certificates.Certificates,windows.registry.getcellroutine.GetCellRoutine,windows.registry.hivelist.HiveList,windows.registry.hivescan.HiveScan,windows.registry.printkey.PrintKey,windows.registry.userassist.UserAssist,windows.sessions.Sessions,windows.shimcachemem.ShimcacheMem,windows.skeleton_key_check.Skeleton_Key_Check,windows.ssdt.SSDT,windows.statistics.Statistics,windows.strings.Strings,windows.suspicious_threads.SupsiciousThreads,windows.svcdiff.SvcDiff,windows.svclist.SvcList,windows.svcscan.SvcScan,windows.symlinkscan.SymlinkScan,windows.thrdscan.ThrdScan,windows.threads.Threads,windows.timers.Timers,windows.truecrypt.Passphrase,windows.unhooked_system_calls.unhooked_system_calls,windows.unloadedmodules.UnloadedModules,windows.vadinfo.VadInfo,windows.vadwalk.VadWalk,windows.vadyarascan.VadYaraScan,windows.verinfo.VerInfo,windows.virtmap.VirtMap,yarascan.YaraScan}
+                  ...
+volatility: error: Please select a plugin to run
+                                                               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                        
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -h | more
+
+Volatility 3 Framework 2.10.0
+usage: volatility [-h] [-c CONFIG] [--parallelism [{processes,threads,off}]]
+                  [-e EXTEND] [-p PLUGIN_DIRS] [-s SYMBOL_DIRS] [-v] [-l LOG]
+                  [-o OUTPUT_DIR] [-q] [-r RENDERER] [-f FILE]
+                  [--write-config] [--save-config SAVE_CONFIG] [--clear-cache]
+                  [--cache-path CACHE_PATH] [--offline] [--filters FILTERS]
+                  [--single-location SINGLE_LOCATION]
+                  [--stackers [STACKERS ...]]
+                  [--single-swap-locations [SINGLE_SWAP_LOCATIONS ...]]
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+more will appear continuously press ENTER 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                  {banners.Banners,configwriter.ConfigWriter,frameworkinfo.FrameworkInfo,isfinfo.IsfInfo,layerwr
+iter.LayerWriter,linux.bash.Bash,linux.capabilities.Capabilities,linux.check_afinfo.Check_afinfo,linux.check_cre
+ds.Check_creds,linux.check_idt.Check_idt,linux.check_modules.Check_modules,linux.check_syscall.Check_syscall,lin
+ux.ebpf.EBPF,linux.elfs.Elfs,linux.envars.Envars,linux.iomem.IOMem,linux.keyboard_notifiers.Keyboard_notifiers,l
+inux.kmsg.Kmsg,linux.library_list.LibraryList,linux.lsmod.Lsmod,linux.lsof.Lsof,linux.malfind.Malfind,linux.moun
+tinfo.MountInfo,linux.netfilter.Netfilter,linux.pagecache.Files,linux.pagecache.InodePages,linux.pidhashtable.PI
+DHashTable,linux.proc.Maps,linux.psaux.PsAux,linux.pslist.PsList,linux.psscan.PsScan,linux.pstree.PsTree,linux.s
+ockstat.Sockstat,linux.tty_check.tty_check,linux.vmayarascan.VmaYaraScan,mac.bash.Bash,mac.check_syscall.Check_s
+yscall,mac.check_sysctl.Check_sysctl,mac.check_trap_table.Check_trap_table,mac.dmesg.Dmesg,mac.ifconfig.Ifconfig
+,mac.kauth_listeners.Kauth_listeners,mac.kauth_scopes.Kauth_scopes,mac.kevents.Kevents,mac.list_files.List_Files
+,mac.lsmod.Lsmod,mac.lsof.Lsof,mac.malfind.Malfind,mac.mount.Mount,mac.netstat.Netstat,mac.proc_maps.Maps,mac.ps
+aux.Psaux,mac.pslist.PsList,mac.pstree.PsTree,mac.socket_filters.Socket_filters,mac.timers.Timers,mac.trustedbsd
+.Trustedbsd,mac.vfsevents.VFSevents,timeliner.Timeliner,vmscan.Vmscan,windows.bigpools.BigPools,windows.callback
+s.Callbacks,windows.cmdline.CmdLine,windows.crashinfo.Crashinfo,windows.debugregisters.DebugRegisters,windows.de
+vicetree.DeviceTree,windows.dlllist.DllList,windows.driverirp.DriverIrp,windows.drivermodule.DriverModule,window
+s.driverscan.DriverScan,windows.dumpfiles.DumpFiles,windows.envars.Envars,windows.filescan.FileScan,windows.gets
+ervicesids.GetServiceSIDs,windows.getsids.GetSIDs,windows.handles.Handles,windows.hollowprocesses.HollowProcesse
+s,windows.iat.IAT,windows.info.Info,windows.joblinks.JobLinks,windows.kpcrs.KPCRs,windows.ldrmodules.LdrModules,
+windows.malfind.Malfind,windows.mbrscan.MBRScan,windows.memmap.Memmap,windows.mftscan.ADS,windows.mftscan.MFTSca
+n,windows.modscan.ModScan,windows.modules.Modules,windows.mutantscan.MutantScan,windows.netscan.NetScan,windows.
+netstat.NetStat,windows.orphan_kernel_threads.Threads,windows.pe_symbols.PESymbols,windows.pedump.PEDump,windows
+.poolscanner.PoolScanner,windows.privileges.Privs,windows.processghosting.ProcessGhosting,windows.pslist.PsList,
+windows.psscan.PsScan,windows.pstree.PsTree,windows.psxview.PsXView,windows.registry.certificates.Certificates,w
+indows.registry.getcellroutine.GetCellRoutine,windows.registry.hivelist.HiveList,windows.registry.hivescan.HiveS
+can,windows.registry.printkey.PrintKey,windows.registry.userassist.UserAssist,windows.sessions.Sessions,windows.
+shimcachemem.ShimcacheMem,windows.skeleton_key_check.Skeleton_Key_Check,windows.ssdt.SSDT,windows.statistics.Sta
+tistics,windows.strings.Strings,windows.suspicious_threads.SupsiciousThreads,windows.svcdiff.SvcDiff,windows.svc
+list.SvcList,windows.svcscan.SvcScan,windows.symlinkscan.SymlinkScan,windows.thrdscan.ThrdScan,windows.threads.T
+hreads,windows.timers.Timers,windows.truecrypt.Passphrase,windows.unhooked_system_calls.unhooked_system_calls,wi
+ndows.unloadedmodules.UnloadedModules,windows.vadinfo.VadInfo,windows.vadwalk.VadWalk,windows.vadyarascan.VadYar
+aScan,windows.verinfo.VerInfo,windows.virtmap.VirtMap,yarascan.YaraScan}
+                  ...
+
+An open-source memory forensics framework
+
+options:
+  -h, --help            Show this help message and exit, for specific plugin
+                        options use 'volatility <pluginname> --help'
+  -c CONFIG, --config CONFIG
+                        Load the configuration from a json file
+  --parallelism [{processes,threads,off}]
+                        Enables parallelism (defaults to off if no argument
+                        given)
+  -e EXTEND, --extend EXTEND
+                        Extend the configuration with a new (or changed)
+                        setting
+  -p PLUGIN_DIRS, --plugin-dirs PLUGIN_DIRS
+                        Semi-colon separated list of paths to find plugins
+  -s SYMBOL_DIRS, --symbol-dirs SYMBOL_DIRS
+                        Semi-colon separated list of paths to find symbols
+  -v, --verbosity       Increase output verbosity
+  -l LOG, --log LOG     Log output to a file as well as the console
+  -o OUTPUT_DIR, --output-dir OUTPUT_DIR
+                        Directory in which to output any generated files
+  -q, --quiet           Remove progress feedback
+  -r RENDERER, --renderer RENDERER
+                        Determines how to render the output (quick, none, csv,
+                        pretty, json, jsonl)
+  -f FILE, --file FILE  Shorthand for --single-location=file:// if single-
+                        location is not defined
+  --write-config        Write configuration JSON file out to config.json
+  --save-config SAVE_CONFIG
+                        Save configuration JSON file to a file
+  --clear-cache         Clears out all short-term cached items
+  --cache-path CACHE_PATH
+                        Change the default path
+                        (/home/kali/.cache/volatility3) used to store the
+                        cache
+  --offline             Do not search online for additional JSON files
+  --filters FILTERS     List of filters to apply to the output (in the form of
+                        [+-]columname,pattern[!])
+  --single-location SINGLE_LOCATION
+                        Specifies a base location on which to stack
+  --stackers [STACKERS ...]
+                        List of stackers
+  --single-swap-locations [SINGLE_SWAP_LOCATIONS ...]
+                        Specifies a list of swap layer URIs for use with
+                        single-location
+
+Plugins:
+  For plugin specific options, run 'volatility <plugin> --help'
+
+  {banners.Banners,configwriter.ConfigWriter,frameworkinfo.FrameworkInfo,isfinfo.IsfInfo,layerwriter.LayerWriter
+,linux.bash.Bash,linux.capabilities.Capabilities,linux.check_afinfo.Check_afinfo,linux.check_creds.Check_creds,l
+inux.check_idt.Check_idt,linux.check_modules.Check_modules,linux.check_syscall.Check_syscall,linux.ebpf.EBPF,lin
+ux.elfs.Elfs,linux.envars.Envars,linux.iomem.IOMem,linux.keyboard_notifiers.Keyboard_notifiers,linux.kmsg.Kmsg,l
+inux.library_list.LibraryList,linux.lsmod.Lsmod,linux.lsof.Lsof,linux.malfind.Malfind,linux.mountinfo.MountInfo,
+linux.netfilter.Netfilter,linux.pagecache.Files,linux.pagecache.InodePages,linux.pidhashtable.PIDHashTable,linux
+.proc.Maps,linux.psaux.PsAux,linux.pslist.PsList,linux.psscan.PsScan,linux.pstree.PsTree,linux.sockstat.Sockstat
+,linux.tty_check.tty_check,linux.vmayarascan.VmaYaraScan,mac.bash.Bash,mac.check_syscall.Check_syscall,mac.check
+_sysctl.Check_sysctl,mac.check_trap_table.Check_trap_table,mac.dmesg.Dmesg,mac.ifconfig.Ifconfig,mac.kauth_liste
+ners.Kauth_listeners,mac.kauth_scopes.Kauth_scopes,mac.kevents.Kevents,mac.list_files.List_Files,mac.lsmod.Lsmod
+,mac.lsof.Lsof,mac.malfind.Malfind,mac.mount.Mount,mac.netstat.Netstat,mac.proc_maps.Maps,mac.psaux.Psaux,mac.ps
+list.PsList,mac.pstree.PsTree,mac.socket_filters.Socket_filters,mac.timers.Timers,mac.trustedbsd.Trustedbsd,mac.
+vfsevents.VFSevents,timeliner.Timeliner,vmscan.Vmscan,windows.bigpools.BigPools,windows.callbacks.Callbacks,wind
+ows.cmdline.CmdLine,windows.crashinfo.Crashinfo,windows.debugregisters.DebugRegisters,windows.devicetree.DeviceT
+ree,windows.dlllist.DllList,windows.driverirp.DriverIrp,windows.drivermodule.DriverModule,windows.driverscan.Dri
+verScan,windows.dumpfiles.DumpFiles,windows.envars.Envars,windows.filescan.FileScan,windows.getservicesids.GetSe
+rviceSIDs,windows.getsids.GetSIDs,windows.handles.Handles,windows.hollowprocesses.HollowProcesses,windows.iat.IA
+T,windows.info.Info,windows.joblinks.JobLinks,windows.kpcrs.KPCRs,windows.ldrmodules.LdrModules,windows.malfind.
+Malfind,windows.mbrscan.MBRScan,windows.memmap.Memmap,windows.mftscan.ADS,windows.mftscan.MFTScan,windows.modsca
+n.ModScan,windows.modules.Modules,windows.mutantscan.MutantScan,windows.netscan.NetScan,windows.netstat.NetStat,
+windows.orphan_kernel_threads.Threads,windows.pe_symbols.PESymbols,windows.pedump.PEDump,windows.poolscanner.Poo
+lScanner,windows.privileges.Privs,windows.processghosting.ProcessGhosting,windows.pslist.PsList,windows.psscan.P
+sScan,windows.pstree.PsTree,windows.psxview.PsXView,windows.registry.certificates.Certificates,windows.registry.
+getcellroutine.GetCellRoutine,windows.registry.hivelist.HiveList,windows.registry.hivescan.HiveScan,windows.regi
+stry.printkey.PrintKey,windows.registry.userassist.UserAssist,windows.sessions.Sessions,windows.shimcachemem.Shi
+mcacheMem,windows.skeleton_key_check.Skeleton_Key_Check,windows.ssdt.SSDT,windows.statistics.Statistics,windows.
+strings.Strings,windows.suspicious_threads.SupsiciousThreads,windows.svcdiff.SvcDiff,windows.svclist.SvcList,win
+dows.svcscan.SvcScan,windows.symlinkscan.SymlinkScan,windows.thrdscan.ThrdScan,windows.threads.Threads,windows.t
+imers.Timers,windows.truecrypt.Passphrase,windows.unhooked_system_calls.unhooked_system_calls,windows.unloadedmo
+dules.UnloadedModules,windows.vadinfo.VadInfo,windows.vadwalk.VadWalk,windows.vadyarascan.VadYaraScan,windows.ve
+rinfo.VerInfo,windows.virtmap.VirtMap,yarascan.YaraScan}
+    banners.Banners     Attempts to identify potential linux banners in an
+                        image
+    configwriter.ConfigWriter
+                        Runs the automagics and both prints and outputs
+                        configuration in the output directory.
+    frameworkinfo.FrameworkInfo
+                        Plugin to list the various modular components of
+                        Volatility
+    isfinfo.IsfInfo     Determines information about the currently available
+                        ISF files, or a specific one
+    layerwriter.LayerWriter
+                        Runs the automagics and writes out the primary layer
+                        produced by the stacker.
+    linux.bash.Bash     Recovers bash command history from memory.
+    linux.capabilities.Capabilities
+                        Lists process capabilities
+    linux.check_afinfo.Check_afinfo
+                        Verifies the operation function pointers of network
+                        protocols.
+    linux.check_creds.Check_creds
+                        Checks if any processes are sharing credential
+                        structures
+    linux.check_idt.Check_idt
+                        Checks if the IDT has been altered
+    linux.check_modules.Check_modules
+                        Compares module list to sysfs info, if available
+    linux.check_syscall.Check_syscall
+                        Check system call table for hooks.
+    linux.ebpf.EBPF     Enumerate eBPF programs
+    linux.elfs.Elfs     Lists all memory mapped ELF files for all processes.
+    linux.envars.Envars
+                        Lists processes with their environment variables
+    linux.iomem.IOMem   Generates an output similar to /proc/iomem on a
+                        running system.
+    linux.keyboard_notifiers.Keyboard_notifiers
+                        Parses the keyboard notifier call chain
+    linux.kmsg.Kmsg     Kernel log buffer reader
+    linux.library_list.LibraryList
+                        Enumerate libraries loaded into processes
+    linux.lsmod.Lsmod   Lists loaded kernel modules.
+    linux.lsof.Lsof     Lists open files for each processes.
+    linux.malfind.Malfind
+                        Lists process memory ranges that potentially contain
+                        injected code.
+    linux.mountinfo.MountInfo
+                        Lists mount points on processes mount namespaces
+    linux.netfilter.Netfilter
+                        Lists Netfilter hooks.
+    linux.pagecache.Files
+                        Lists files from memory
+    linux.pagecache.InodePages
+                        Lists and recovers cached inode pages
+    linux.pidhashtable.PIDHashTable
+                        Enumerates processes through the PID hash table
+    linux.proc.Maps     Lists all memory maps for all processes.
+    linux.psaux.PsAux   Lists processes with their command line arguments
+    linux.pslist.PsList
+                        Lists the processes present in a particular linux
+                        memory image.
+    linux.psscan.PsScan
+                        Scans for processes present in a particular linux
+                        image.
+    linux.pstree.PsTree
+                        Plugin for listing processes in a tree based on their
+                        parent process ID.
+    linux.sockstat.Sockstat
+                        Lists all network connections for all processes.
+    linux.tty_check.tty_check
+                        Checks tty devices for hooks
+    linux.vmayarascan.VmaYaraScan
+                        Scans all virtual memory areas for tasks using yara.
+    mac.bash.Bash       Recovers bash command history from memory.
+    mac.check_syscall.Check_syscall
+                        Check system call table for hooks.
+    mac.check_sysctl.Check_sysctl
+                        Check sysctl handlers for hooks.
+    mac.check_trap_table.Check_trap_table
+                        Check mach trap table for hooks.
+    mac.dmesg.Dmesg     Prints the kernel log buffer.
+    mac.ifconfig.Ifconfig
+                        Lists network interface information for all devices
+    mac.kauth_listeners.Kauth_listeners
+                        Lists kauth listeners and their status
+    mac.kauth_scopes.Kauth_scopes
+                        Lists kauth scopes and their status
+    mac.kevents.Kevents
+                        Lists event handlers registered by processes
+    mac.list_files.List_Files
+                        Lists all open file descriptors for all processes.
+    mac.lsmod.Lsmod     Lists loaded kernel modules.
+    mac.lsof.Lsof       Lists all open file descriptors for all processes.
+    mac.malfind.Malfind
+                        Lists process memory ranges that potentially contain
+                        injected code.
+    mac.mount.Mount     A module containing a collection of plugins that
+                        produce data typically found in Mac's mount command
+    mac.netstat.Netstat
+                        Lists all network connections for all processes.
+    mac.proc_maps.Maps  Lists process memory ranges that potentially contain
+                        injected code.
+    mac.psaux.Psaux     Recovers program command line arguments.
+    mac.pslist.PsList   Lists the processes present in a particular mac memory
+                        image.
+    mac.pstree.PsTree   Plugin for listing processes in a tree based on their
+                        parent process ID.
+    mac.socket_filters.Socket_filters
+                        Enumerates kernel socket filters.
+    mac.timers.Timers   Check for malicious kernel timers.
+    mac.trustedbsd.Trustedbsd
+                        Checks for malicious trustedbsd modules
+    mac.vfsevents.VFSevents
+                        Lists processes that are filtering file system events
+    timeliner.Timeliner
+                        Runs all relevant plugins that provide time related
+                        information and orders the results by time.
+    vmscan.Vmscan       Scans for Intel VT-d structues and generates VM
+                        volatility configs for them
+    windows.bigpools.BigPools
+                        List big page pools.
+    windows.callbacks.Callbacks
+                        Lists kernel callbacks and notification routines.
+    windows.cmdline.CmdLine
+                        Lists process command line arguments.
+    windows.crashinfo.Crashinfo
+                        Lists the information from a Windows crash dump.
+    windows.debugregisters.DebugRegisters
+    windows.devicetree.DeviceTree
+                        Listing tree based on drivers and attached devices in
+                        a particular windows memory image.
+    windows.dlllist.DllList
+                        Lists the loaded modules in a particular windows
+                        memory image.
+    windows.driverirp.DriverIrp
+                        List IRPs for drivers in a particular windows memory
+                        image.
+    windows.drivermodule.DriverModule
+                        Determines if any loaded drivers were hidden by a
+                        rootkit
+    windows.driverscan.DriverScan
+                        Scans for drivers present in a particular windows
+                        memory image.
+    windows.dumpfiles.DumpFiles
+                        Dumps cached file contents from Windows memory
+                        samples.
+    windows.envars.Envars
+                        Display process environment variables
+    windows.filescan.FileScan
+                        Scans for file objects present in a particular windows
+                        memory image.
+    windows.getservicesids.GetServiceSIDs
+                        Lists process token sids.
+    windows.getsids.GetSIDs
+                        Print the SIDs owning each process
+    windows.handles.Handles
+                        Lists process open handles.
+    windows.hollowprocesses.HollowProcesses
+                        Lists hollowed processes
+    windows.iat.IAT     Extract Import Address Table to list API (functions)
+                        used by a program contained in external libraries
+    windows.info.Info   Show OS & kernel details of the memory sample being
+                        analyzed.
+    windows.joblinks.JobLinks
+                        Print process job link information
+    windows.kpcrs.KPCRs
+                        Print KPCR structure for each processor
+    windows.ldrmodules.LdrModules
+                        Lists the loaded modules in a particular windows
+                        memory image.
+    windows.malfind.Malfind
+                        Lists process memory ranges that potentially contain
+                        injected code.
+    windows.mbrscan.MBRScan
+                        Scans for and parses potential Master Boot Records
+                        (MBRs)
+    windows.memmap.Memmap
+                        Prints the memory map
+    windows.mftscan.ADS
+                        Scans for Alternate Data Stream
+    windows.mftscan.MFTScan
+                        Scans for MFT FILE objects present in a particular
+                        windows memory image.
+    windows.modscan.ModScan
+                        Scans for modules present in a particular windows
+                        memory image.
+    windows.modules.Modules
+                        Lists the loaded kernel modules.
+    windows.mutantscan.MutantScan
+                        Scans for mutexes present in a particular windows
+                        memory image.
+    windows.netscan.NetScan
+                        Scans for network objects present in a particular
+                        windows memory image.
+    windows.netstat.NetStat
+                        Traverses network tracking structures present in a
+                        particular windows memory image.
+    windows.orphan_kernel_threads.Threads
+                        Lists process threads
+    windows.pe_symbols.PESymbols
+                        Prints symbols in PE files in process and kernel
+                        memory
+    windows.pedump.PEDump
+                        Allows extracting PE Files from a specific address in
+                        a specific address space
+    windows.poolscanner.PoolScanner
+                        A generic pool scanner plugin.
+    windows.privileges.Privs
+                        Lists process token privileges
+    windows.processghosting.ProcessGhosting
+                        Lists processes whose DeletePending bit is set or
+                        whose FILE_OBJECT is set to 0
+    windows.pslist.PsList
+                        Lists the processes present in a particular windows
+                        memory image.
+    windows.psscan.PsScan
+                        Scans for processes present in a particular windows
+                        memory image.
+    windows.pstree.PsTree
+                        Plugin for listing processes in a tree based on their
+                        parent process ID.
+    windows.psxview.PsXView
+                        Lists all processes found via four of the methods
+                        described in "The Art of Memory Forensics," which may
+                        help identify processes that are trying to hide
+                        themselves. I recommend using -r pretty if you are
+                        looking at this plugin's output in a terminal.
+    windows.registry.certificates.Certificates
+                        Lists the certificates in the registry's Certificate
+                        Store.
+    windows.registry.getcellroutine.GetCellRoutine
+                        Reports registry hives with a hooked GetCellRoutine
+                        handler
+    windows.registry.hivelist.HiveList
+                        Lists the registry hives present in a particular
+                        memory image.
+    windows.registry.hivescan.HiveScan
+                        Scans for registry hives present in a particular
+                        windows memory image.
+    windows.registry.printkey.PrintKey
+                        Lists the registry keys under a hive or specific key
+                        value.
+    windows.registry.userassist.UserAssist
+                        Print userassist registry keys and information.
+    windows.sessions.Sessions
+                        lists Processes with Session information extracted
+                        from Environmental Variables
+    windows.shimcachemem.ShimcacheMem
+                        Reads Shimcache entries from the ahcache.sys AVL tree
+    windows.skeleton_key_check.Skeleton_Key_Check
+                        Looks for signs of Skeleton Key malware
+    windows.ssdt.SSDT   Lists the system call table.
+    windows.statistics.Statistics
+                        Lists statistics about the memory space.
+    windows.strings.Strings
+                        Reads output from the strings command and indicates
+                        which process(es) each string belongs to.
+    windows.suspicious_threads.SupsiciousThreads
+                        Lists suspicious userland process threads
+    windows.svcdiff.SvcDiff
+                        Compares services found through list walking versus
+                        scanning to find rootkits
+    windows.svclist.SvcList
+                        Lists services contained with the services.exe doubly
+                        linked list of services
+    windows.svcscan.SvcScan
+                        Scans for windows services.
+    windows.symlinkscan.SymlinkScan
+                        Scans for links present in a particular windows memory
+                        image.
+    windows.thrdscan.ThrdScan
+                        Scans for windows threads.
+    windows.threads.Threads
+                        Lists process threads
+    windows.timers.Timers
+                        Print kernel timers and associated module DPCs
+    windows.truecrypt.Passphrase
+                        TrueCrypt Cached Passphrase Finder
+    windows.unhooked_system_calls.unhooked_system_calls
+                        Looks for signs of Skeleton Key malware
+    windows.unloadedmodules.UnloadedModules
+                        Lists the unloaded kernel modules.
+    windows.vadinfo.VadInfo
+                        Lists process memory ranges.
+    windows.vadwalk.VadWalk
+                        Walk the VAD tree.
+    windows.vadyarascan.VadYaraScan
+                        Scans all the Virtual Address Descriptor memory maps
+                        using yara.
+    windows.verinfo.VerInfo
+                        Lists version information from PE files.
+    windows.virtmap.VirtMap
+                        Lists virtual mapped sections.
+    yarascan.YaraScan   Scans kernel memory using yara rules (string or file).
+
+The following plugins could not be loaded (use -vv to see why):
+volatility3.plugins.windows.cachedump, volatility3.plugins.windows.hashdump,
+volatility3.plugins.windows.lsadump
+
+
+
+(END)
+
+
+ctrl+x
+----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>....
+
+=======================================================================
+
+copy memory dump from window in kali 
+and forward that in volatility3 folder 
+--------------------------------------------------------------
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+┌──(kali㉿kali)-[~]
+└─$ Desktop
+                                                                           
+┌──(kali㉿kali)-[~/Desktop]
+└─$ ls
+memory_dumps
+                                                                           
+┌──(kali㉿kali)-[~/Desktop]
+└─$ ls
+memory_dumps
+                                                                           
+┌──(kali㉿kali)-[~/Desktop]
+└─$ 
+                                                                           
+┌──(kali㉿kali)-[~/Desktop]
+└─$ ls
+memory_dumps
+                                                                           
+┌──(kali㉿kali)-[~/Desktop]
+└─$ cd memory_dumps
+                                                                           
+┌──(kali㉿kali)-[~/Desktop/memory_dumps]
+└─$ ls
+memdump.mem
+                                                                           
+┌──(kali㉿kali)-[~/Desktop/memory_dumps]
+└─$ pwd                  
+/home/kali/Desktop/memory_dumps
+                                                                            
+┌──(kali㉿kali)-[~/Desktop/memory_dumps]
+└─$ ls
+memdump.mem
+                                                                            
+┌──(kali㉿kali)-[~/Desktop/memory_dumps]
+└─$ cp  memdump.mem /home/kali/volatility3
+
+
+      ^Z
+zsh: suspended  cp memdump.mem /home/kali/volatility3
+                                               
+┌──(kali㉿kali)-[~/Desktop/memory_dumps]
+└─$ cp -v  memdump.mem /home/kali/volatility3
+
+'memdump.mem' -> '/home/kali/volatility3/memdump.mem'
+
+
+
+
+=====================================================================
+=====================================================================
+=====================================================================
+=====================================================================
+┌──(kali㉿kali)-[~/volatility3]
+└─$ ls
+API_CHANGES.md  mypy.ini                  test
+CITATION.cff    pyproject.toml            vol.py
+development     README.md                 volshell.py
+doc             requirements-dev.txt      volshell.spec
+LICENSE.txt     requirements-minimal.txt  vol.spec
+MANIFEST.in     requirements.txt
+memdump.mem     setup.py
+                                                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+......................................>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist -h
+Volatility 3 Framework 2.10.0
+usage: volatility windows.pslist.PsList [-h] [--physical] [--pid [PID ...]] [--dump]
+
+options:
+  -h, --help       show this help message and exit
+  --physical       Display physical offsets instead of virtual
+  --pid [PID ...]  Process ID to include (all other processes are excluded)
+  --dump           Extract listed processes
+
+                                                              
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist
+Volatility 3 Framework 2.10.0
+Progress:    0.00               Updating caches for 83 filProgress:    1.20               Updating caches for 83 filProgress:    2.41               Updating caches for 83 filProgress:    3.61               Updating caches for 83 filProgress:    4.82               Updating caches for 83 filProgress:    6.02               Updating caches for 83 filProgress:    7.23               Updating caches for 83 filProgress:    8.43               Updating caches for 83 filProgress:    9.64               Updating caches for 83 filProgress:   10.84               Updating caches for 83 filProgress:   12.05               Updating caches for 83 filProgress:   13.25               Updating caches for 83 filProgress:   14.46               Updating caches for 83 filProgress:   15.66               Updating caches for 83 filProgress:   16.87               Updating caches for 83 filProgress:   18.07               Updating caches for 83 filProgress:   19.28               Updating caches for 83 filProgress:   20.48               Updating caches for 83 filProgress:   21.69               Updating caches for 83 filProgress:   22.89               Updating caches for 83 filProgress:   24.10               Updating caches for 83 filProgress:   25.30               Updating caches for 83 filProgress:   26.51               Updating caches for 83 filProgress:   27.71               Updating caches for 83 fil
+.................................................................................................................................................
+.....................................................................................................................................................
+........................................................................................................................
+........................................................................................................................
+Progress:   99.99               Reading Symbol layer                                          Progress:   99.99               Reading Symbol layer                                          Progress:   99.99               Reading Symbol layer                                          Progress:   99.99               Reading Symbol layer                                          Progress:   99.99               Reading Symbol layer                                          Progress:  100.00               Reading Symbol layer                                          Progress:  100.00               Reading Symbol layer                                          Progress:  100.00               PDB scanning finished                                                                                              
+PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       Wow64   CreateTime    ExitTime        File output
+
+4       0       System  0xa60a482fc040  249     -       N/A     False   2024-09-28 13:17:41.000000 UTC        N/A     Disabled
+164     4       Registry        0xa60a483e5040  4       -       N/A     False   2024-09-28 13:17:37.000000 UTC        N/A     Disabled
+628     4       smss.exe        0xa60a4c74b040  2       -       N/A     False   2024-09-28 13:17:41.000000 UTC        N/A     Disabled
+944     740     csrss.exe       0xa60a4fe1d140  14      -       0       False   2024-09-28 13:17:48.000000 UTC        N/A     Disabled
+656     740     wininit.exe     0xa60a51f47140  2       -       0       False   2024-09-28 13:17:48.000000 UTC        N/A     Disabled
+
+2644    6944    FTK Imager.exe  0xa60a5d8d20c0  23      -       1       False   2024-09-29 04:07:43.000000 UTC        N/A     Disabled
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+.................................................>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.>
+
+
+
+
+
+
+
+
+
+==================================================================
+==================================================================
+==================================================================
+==================================================================
+==================================================================
+Note - memory dump and volatility (tool) both should be the same place or folder 
+
+==================================================================
+┌──(kali㉿kali)-[~]
+└─$ ls
+00:0C:29:BF:5F:48  Downloads  kalicu.txt     Music    Pictures   Videos
+czCbUNSh.jpeg      k1.txt     KSldAFqN.html  om       Public     volatility3
+Desktop            k2cu.txt   memdump.mem    omk.txt  slowloris  xdGAvFju.html
+==================================================================
+==================================================================
+==================================================================
+Note - memory dump file should be outside of the volatility folder 
+================================================================
+=----------------======================================================
+==================================================================
+==================================================================
+==================================================================
+==================================================================
+==================================================================
+==================================================================
+
+
+
+┌──(kali㉿kali)-[~/volatility3]
+└─$ ls
+API_CHANGES.md  LICENSE.txt     README.md                 setup.py     volshell.py
+CITATION.cff    MANIFEST.in     requirements-dev.txt      test         volshell.spec
+development     mypy.ini        requirements-minimal.txt  volatility3  vol.spec
+doc             pyproject.toml  requirements.txt          vol.py
+                                                                                              
+┌──(kali㉿kali)-[~/volatility3]
+└─$ cd ..         
+                                                                                              
+┌──(kali㉿kali)-[~]
+└─$ ls
+00:0C:29:BF:5F:48  Downloads  kalicu.txt     Music    Pictures   Videos
+czCbUNSh.jpeg      k1.txt     KSldAFqN.html  om       Public     volatility3
+Desktop            k2cu.txt   memdump.mem    omk.txt  slowloris  xdGAvFju.html
+Documents          kali1.txt  MKWjUhqc.jpeg  om.txt   Templates  zphisher
+                                                                                              
+┌──(kali㉿kali)-[~]
+└─$ cd volatility3
+                                                                                              
+┌──(kali㉿kali)-[~/volatility3]
+└─$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================================
+=====================================================================
+=====================================================================
+again same plugin - windows.pslist
+
+
+──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist
+Volatility 3 Framework 2.10.0
+Progress:  100.00               PDB scanning finished                        
+PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       Wow64   CreateTime      ExitTime        File output
+
+4       0       System  0xa60a482fc040  249     -       N/A     False   2024-09-28 13:17:41.000000 UTC  N/A     Disabled
+
+1032    656     lsass.exe       0xa60a51fdb1c0  10      -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Disabled
+
+15172   1156    FileCoAuth.exe  0xa60a5d3e0080  8       -       1       False   2024-09-29 04:07:39.000000 UTC  N/A     Disabled
+2644    6944    FTK Imager.exe  0xa60a5d8d20c0  23      -       1       False   2024-09-29 04:07:43.000000 UTC  N/A     Disabled
+                                                                                                                                                                                                                  
+┌──(kali㉿kali)-[~/volatility3]
+└─$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist | grep -i svchost
+1156ress996100.0svchost.exe     0xa60a52032080  33      -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Disabled
+1300    996     svchost.exe     0xa60a5216d0c0  13      -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Disabled
+
+10712   996     svchost.exe     0xa60a5d36b080  4       -       0       False   2024-09-29 04:06:47.000000 UTC  N/A     Disabled
+                                                                                                                                                                                                                  
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist -h               
+Volatility 3 Framework 2.10.0
+usage: volatility windows.pslist.PsList [-h] [--physical] [--pid [PID ...]] [--dump]
+
+options:
+  -h, --help       show this help message and exit
+  --physical       Display physical offsets instead of virtual
+  --pid [PID ...]  Process ID to include (all other processes are excluded)
+  --dump           Extract listed processes
+
+
+
+                                                                                                                                  
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist --pid 996
+Volatility 3 Framework 2.10.0
+Progress:  100.00               PDB scanning finished                        
+PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       Wow64   CreateTime      ExitTime        File output                                                                              
+
+996     656     services.exe    0xa60a51fb81c0  7       -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Disabled
+
+===================================================
+
+if any other pid came  rather then 996 be there and we gong to analyze each.... 
+
+===================================================
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist | grep -i svchost | grep 4824
+                                                                                                                                                                                                                 
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist | grep -i svchost | grep 996 
+1156ress996     svchost.exe     0xa60a52032080  33      -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Disabled
+1300    996     svchost.exe     0xa60a5216d0c0  13      -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Disabled
+1344    996     svchost.exe     0xa60a521cb0c0  5       -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Disabled
+10712   996     svchost.exe     0xa60a5d36b080  4       -       0       False   2024-09-29 04:06:47.000000 UTC  N/A     Disabled
+                                                                                                                                    
+
+
+===================================================
+
+if any any file came like ----          svchost.exe.exe  
+we need check 
+
+===================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+commandline plugin ....
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.cmdline -h                         
+Volatility 3 Framework 2.10.0
+usage: volatility windows.cmdline.CmdLine [-h] [--pid [PID ...]]
+
+options:
+  -h, --help       show this help message and exit
+  --pid [PID ...]  Process IDs to include (all other processes are excluded)
+                                                                                        
+-------------------------------------------
+                                                                                                                                                                                                                 
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.cmdline --pid 996
+Volatility 3 Framework 2.10.0
+Progress:  100.00               PDB scanning finished                        
+PID     Process Args
+
+996     services.exe    Required memory at 0xef3d72c020 is not valid (process exited?)
+--------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -h | grep -i dump                         
+                  {banners.Banners,configwriter.ConfigWriter,frameworkinfo.FrameworkInfo,isfinfo.IsfInfo,layerwriter.LayerWriter,linux.bash.Bash,linux.capabilities.Capabilities,linux.check_afinfo.Check_afinfo,linux.check_creds.Check_creds,linux.check_idt.Check_idt,linux.check_modules.Check_modules,linux.check_syscall.Check_syscall,linux.ebpf.EBPF,linux.elfs.Elfs,linux.envars.Envars,linux.iomem.IOMem,linux.keyboard_notifiers.Keyboard_notifiers,linux.kmsg.Kmsg,linux.library_list.LibraryList,linux.lsmod.Lsmod,linux.lsof.Lsof,linux.malfind.Malfind,linux.mountinfo.MountInfo,linux.netfilter.Netfilter,linux.pagecache.Files,linux.pagecache.InodePages,linux.pidhashtable.PIDHashTable,linux.proc.Maps,linux.psaux.PsAux,linux.pslist.PsList,linux.psscan.PsScan,linux.pstree.PsTree,linux.sockstat.Sockstat,linux.tty_check.tty_check,linux.vmayarascan.VmaYaraScan,mac.bash.Bash,mac.check_syscall.Check_syscall,mac.check_sysctl.Check_sysctl,mac.check_trap_table.Check_trap_table,mac.dmesg.Dmesg,mac.ifconfig.Ifconfig,mac.kauth_listeners.Kauth_listeners,mac.kauth_scopes.Kauth_scopes,mac.kevents.Kevents,mac.list_files.List_Files,mac.lsmod.Lsmod,mac.lsof.Lsof,mac.malfind.Malfind,mac.mount.Mount,mac.netstat.Netstat,mac.proc_maps.Maps,mac.psaux.Psaux,mac.pslist.PsList,mac.pstree.PsTree,mac.socket_filters.Socket_filters,mac.timers.Timers,mac.trustedbsd.Trustedbsd,mac.vfsevents.VFSevents,timeliner.Timeliner,vmscan.Vmscan,windows.bigpools.BigPools,windows.callbacks.Callbacks,windows.cmdline.CmdLine,windows.crashinfo.Crashinfo,windows.debugregisters.DebugRegisters,windows.devicetree.DeviceTree,windows.dlllist.DllList,windows.driverirp.DriverIrp,windows.drivermodule.DriverModule,windows.driverscan.DriverScan,windows.dumpfiles.DumpFiles,windows.envars.Envars,windows.filescan.FileScan,windows.getservicesids.GetServiceSIDs,windows.getsids.GetSIDs,windows.handles.Handles,windows.hollowprocesses.HollowProcesses,windows.iat.IAT,windows.info.Info,windows.joblinks.JobLinks,windows.kpcrs.KPCRs,windows.ldrmodules.LdrModules,windows.malfind.Malfind,windows.mbrscan.MBRScan,windows.memmap.Memmap,windows.mftscan.ADS,windows.mftscan.MFTScan,windows.modscan.ModScan,windows.modules.Modules,windows.mutantscan.MutantScan,windows.netscan.NetScan,windows.netstat.NetStat,windows.orphan_kernel_threads.Threads,windows.pe_symbols.PESymbols,windows.pedump.PEDump,windows.poolscanner.PoolScanner,windows.privileges.Privs,windows.processghosting.ProcessGhosting,windows.pslist.PsList,windows.psscan.PsScan,windows.pstree.PsTree,windows.psxview.PsXView,windows.registry.certificates.Certificates,windows.registry.getcellroutine.GetCellRoutine,windows.registry.hivelist.HiveList,windows.registry.hivescan.HiveScan,windows.registry.printkey.PrintKey,windows.registry.userassist.UserAssist,windows.sessions.Sessions,windows.shimcachemem.ShimcacheMem,windows.skeleton_key_check.Skeleton_Key_Check,windows.ssdt.SSDT,windows.statistics.Statistics,windows.strings.Strings,windows.suspicious_threads.SupsiciousThreads,windows.svcdiff.SvcDiff,windows.svclist.SvcList,windows.svcscan.SvcScan,windows.symlinkscan.SymlinkScan,windows.thrdscan.ThrdScan,windows.threads.Threads,windows.timers.Timers,windows.truecrypt.Passphrase,windows.unhooked_system_calls.unhooked_system_calls,windows.unloadedmodules.UnloadedModules,windows.vadinfo.VadInfo,windows.vadwalk.VadWalk,windows.vadyarascan.VadYaraScan,windows.verinfo.VerInfo,windows.virtmap.VirtMap,yarascan.YaraScan}
+  {banners.Banners,configwriter.ConfigWriter,frameworkinfo.FrameworkInfo,isfinfo.IsfInfo,layerwriter.LayerWriter,linux.bash.Bash,linux.capabilities.Capabilities,linux.check_afinfo.Check_afinfo,linux.check_creds.Check_creds,linux.check_idt.Check_idt,linux.check_modules.Check_modules,linux.check_syscall.Check_syscall,linux.ebpf.EBPF,linux.elfs.Elfs,linux.envars.Envars,linux.iomem.IOMem,linux.keyboard_notifiers.Keyboard_notifiers,linux.kmsg.Kmsg,linux.library_list.LibraryList,linux.lsmod.Lsmod,linux.lsof.Lsof,linux.malfind.Malfind,linux.mountinfo.MountInfo,linux.netfilter.Netfilter,linux.pagecache.Files,linux.pagecache.InodePages,linux.pidhashtable.PIDHashTable,linux.proc.Maps,linux.psaux.PsAux,linux.pslist.PsList,linux.psscan.PsScan,linux.pstree.PsTree,linux.sockstat.Sockstat,linux.tty_check.tty_check,linux.vmayarascan.VmaYaraScan,mac.bash.Bash,mac.check_syscall.Check_syscall,mac.check_sysctl.Check_sysctl,mac.check_trap_table.Check_trap_table,mac.dmesg.Dmesg,mac.ifconfig.Ifconfig,mac.kauth_listeners.Kauth_listeners,mac.kauth_scopes.Kauth_scopes,mac.kevents.Kevents,mac.list_files.List_Files,mac.lsmod.Lsmod,mac.lsof.Lsof,mac.malfind.Malfind,mac.mount.Mount,mac.netstat.Netstat,mac.proc_maps.Maps,mac.psaux.Psaux,mac.pslist.PsList,mac.pstree.PsTree,mac.socket_filters.Socket_filters,mac.timers.Timers,mac.trustedbsd.Trustedbsd,mac.vfsevents.VFSevents,timeliner.Timeliner,vmscan.Vmscan,windows.bigpools.BigPools,windows.callbacks.Callbacks,windows.cmdline.CmdLine,windows.crashinfo.Crashinfo,windows.debugregisters.DebugRegisters,windows.devicetree.DeviceTree,windows.dlllist.DllList,windows.driverirp.DriverIrp,windows.drivermodule.DriverModule,windows.driverscan.DriverScan,windows.dumpfiles.DumpFiles,windows.envars.Envars,windows.filescan.FileScan,windows.getservicesids.GetServiceSIDs,windows.getsids.GetSIDs,windows.handles.Handles,windows.hollowprocesses.HollowProcesses,windows.iat.IAT,windows.info.Info,windows.joblinks.JobLinks,windows.kpcrs.KPCRs,windows.ldrmodules.LdrModules,windows.malfind.Malfind,windows.mbrscan.MBRScan,windows.memmap.Memmap,windows.mftscan.ADS,windows.mftscan.MFTScan,windows.modscan.ModScan,windows.modules.Modules,windows.mutantscan.MutantScan,windows.netscan.NetScan,windows.netstat.NetStat,windows.orphan_kernel_threads.Threads,windows.pe_symbols.PESymbols,windows.pedump.PEDump,windows.poolscanner.PoolScanner,windows.privileges.Privs,windows.processghosting.ProcessGhosting,windows.pslist.PsList,windows.psscan.PsScan,windows.pstree.PsTree,windows.psxview.PsXView,windows.registry.certificates.Certificates,windows.registry.getcellroutine.GetCellRoutine,windows.registry.hivelist.HiveList,windows.registry.hivescan.HiveScan,windows.registry.printkey.PrintKey,windows.registry.userassist.UserAssist,windows.sessions.Sessions,windows.shimcachemem.ShimcacheMem,windows.skeleton_key_check.Skeleton_Key_Check,windows.ssdt.SSDT,windows.statistics.Statistics,windows.strings.Strings,windows.suspicious_threads.SupsiciousThreads,windows.svcdiff.SvcDiff,windows.svclist.SvcList,windows.svcscan.SvcScan,windows.symlinkscan.SymlinkScan,windows.thrdscan.ThrdScan,windows.threads.Threads,windows.timers.Timers,windows.truecrypt.Passphrase,windows.unhooked_system_calls.unhooked_system_calls,windows.unloadedmodules.UnloadedModules,windows.vadinfo.VadInfo,windows.vadwalk.VadWalk,windows.vadyarascan.VadYaraScan,windows.verinfo.VerInfo,windows.virtmap.VirtMap,yarascan.YaraScan}
+                        Lists the information from a Windows crash dump.
+    windows.dumpfiles.DumpFiles
+                        Dumps cached file contents from Windows memory
+    windows.pedump.PEDump
+volatility3.plugins.windows.cachedump, volatility3.plugins.windows.hashdump,
+volatility3.plugins.windows.lsadump
+-----------------------------------------------------------------------
+
+==========================================================================================================
+==========================================================================================================
+==========================================================================================================
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist -h
+Volatility 3 Framework 2.10.0
+usage: volatility windows.pslist.PsList [-h] [--physical] [--pid [PID ...]] [--dump]
+
+options:
+  -h, --help       show this help message and exit
+  --physical       Display physical offsets instead of virtual
+  --pid [PID ...]  Process ID to include (all other processes are excluded)
+  --dump           Extract listed processes
+===============================================================================
+
+----------------------------------------------------------------
+                                                                                                                                                                                                                                      
+┌──(kali㉿kali)-[~/volatility3]
+└─$ python vol.py -f ~/memdump.mem windows.pslist --pid 996 --dump
+Volatility 3 Framework 2.10.0
+Progress:  100.00               PDB scanning finished                        
+PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       Wow64   CreateTime      ExitTime        File output
+
+996     656     services.exe    0xa60a51fb81c0  7       -       0       False   2024-09-28 13:17:48.000000 UTC  N/A     Error outputting file
+
+==================================================
+
+
+
+
+
+
+
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+=======================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+Article volatility in Linux - https://github.com/volatilityfoundation/volatility/wiki/Linux
+
+Article - https://subscription.packtpub.com/book/security/9781788625005/7/ch07lvl1sec49/using-volatility-in-kali-linux
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
