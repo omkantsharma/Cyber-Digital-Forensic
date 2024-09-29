@@ -1,0 +1,15 @@
+Copy Files from Windows to kali Linux
+
+
+--------------------------------------
+on kali 
+ifconfig
+sudo service ssh start
+
+
+
+-------------------------------------
+on win
+
+reach file folder/dir 
+scp filename.extension kaliusername@ip location_in_kali 
