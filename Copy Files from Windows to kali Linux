@@ -1,7 +1,7 @@
 Copy Files from Windows to kali Linux
 
 in win ---
-ssh-keygen -R [ip of reciver/sender os]
+ssh-keygen -R [ip of receiver/sender os]
 ssh-keygen -R 192.168.176.162
 --------------------------------------
 on kali 
